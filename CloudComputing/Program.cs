@@ -15,6 +15,7 @@ namespace CloudComputing
             builder.Services.AddDbContext<AppDbContext>(
                 o => o.UseMySql(conn, ServerVersion.AutoDetect(conn)));
             builder.Services.AddControllersWithViews();
+
             var app = builder.Build();
             DbInitializer.Seed(app);
 

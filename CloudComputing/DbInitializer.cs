@@ -8,6 +8,7 @@ public static class DbInitializer
     {
         using var scope = app.Services.CreateScope();
         var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+        db.Database.EnsureCreated();
         if (!db.Products.Any())
         {
             db.Products.AddRange(
