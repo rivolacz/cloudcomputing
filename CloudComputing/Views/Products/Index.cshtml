@@ -1,0 +1,29 @@
+﻿@model IEnumerable<CloudComputing.Models.Product>
+@{
+    ViewData["Title"] = "Products";
+}
+
+<h1>Products</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Create new</a>
+    <a class="btn btn-secondary" asp-action="Index">Refresh</a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.First().Name)</th>
+            <th>@Html.DisplayNameFor(m => m.First().Price)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model)
+        {
+            <tr>
+                <td>@p.Name</td>
+                <td>@p.Price.ToString("C")</td>
+            </tr>
+        }
+    </tbody>
+</table>
